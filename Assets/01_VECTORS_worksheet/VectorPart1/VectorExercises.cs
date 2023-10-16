@@ -16,6 +16,8 @@ public class VectorExercises : MonoBehaviour
 
     private void Start()
     {
+        CalculateGameDimensions();
+
         if (Q2a)
             Question2a();
         if (Q2b)
@@ -36,7 +38,13 @@ public class VectorExercises : MonoBehaviour
 
     public void CalculateGameDimensions()
     {
+        GameHeight = Camera.main.orthographicSize * 2f;
+        GameWidth = Camera.main.aspect * GameHeight;
 
+        maxX = GameWidth / 2;
+        maxY = GameHeight / 2;
+        minX = -maxX;
+        minY = -maxY;
     }
 
     void Question2a()
@@ -55,8 +63,8 @@ public class VectorExercises : MonoBehaviour
     {
         for (int i = 0; i <= n; i++) //iterates this code n amount of times based on how many lines are needed
         {
-            startPt = new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f)); // randomises the x and y-axis to have a number from -5 to 5
-            endPt = new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f));
+            startPt = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY)); // randomises the x and y-axis to have a number from -5 to 5
+            endPt = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
 
             drawnLine = lineFactory.GetLine(startPt, endPt, 0.02f, Color.black);
             drawnLine.EnableDrawing(true);
