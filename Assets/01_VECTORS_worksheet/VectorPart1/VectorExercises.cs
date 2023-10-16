@@ -61,10 +61,15 @@ public class VectorExercises : MonoBehaviour
 
     void Question2b(int n)
     {
-        for (int i = 0; i <= n; i++) //iterates this code n amount of times based on how many lines are needed
+        for (int i = 0; i < n; i++) //iterates this code n amount of times based on how many lines are needed
         {
-            startPt = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY)); // randomises the x and y-axis to have a number from -5 to 5
-            endPt = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
+            startPt = new Vector2(
+                Random.Range(minX, maxX),
+                Random.Range(minY, maxY)); 
+
+            endPt = new Vector2(
+                Random.Range(minX, maxX),
+                Random.Range(minY, maxY));
 
             drawnLine = lineFactory.GetLine(startPt, endPt, 0.02f, Color.black);
             drawnLine.EnableDrawing(true);
@@ -73,7 +78,11 @@ public class VectorExercises : MonoBehaviour
 
     void Question2d()
     {
-
+        DebugExtension.DebugArrow(
+            new Vector3(0, 0, 0), //start position
+            new Vector3(5, 5, 0), //direction or end position of vector
+            Color.red, 
+            60f); //seconds appearing for
     }
 
     void Question2e(int n)
@@ -81,17 +90,18 @@ public class VectorExercises : MonoBehaviour
         for (int i = 0; i < n; i++)
         {
             startPt = new Vector2(
-                Random.Range(-maxX, maxX), 
-                Random.Range(-maxY, maxY));
+                Random.Range(minX, maxX),
+                Random.Range(minY, maxY));
 
-            // Your code here
-            // ...
+            endPt = new Vector2(
+                Random.Range(minX, maxX),
+                Random.Range(minY, maxY));
 
-            //DebugExtension.DebugArrow(
-            //    new Vector3(0, 0, 0),
-            //    // Your code here,
-            //    Color.white,
-            //    60f);
+            DebugExtension.DebugArrow(
+                new Vector3(0, 0, 0),
+                new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), Random.Range(minY,maxY)),
+                Color.white,
+                60f);
         }  
     }
 
