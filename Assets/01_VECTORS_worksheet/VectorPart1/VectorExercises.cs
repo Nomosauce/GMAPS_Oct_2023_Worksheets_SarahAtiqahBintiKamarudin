@@ -41,13 +41,13 @@ public class VectorExercises : MonoBehaviour
 
     void Question2a()
     {
-        startPt = new Vector2(0, 0); // set starting point of the vector to be 0x 0y, and vector2 is used as its 2D
-        endPt = new Vector2(2, 3); // set end point of the vector to br 2x 3y, so the line goes from 0,0 to 2,3
+        startPt = new Vector2(3, -2); // set starting point of the vector to be 0x 0y, and vector2 is used as its 2D
+        endPt = new Vector2(-2, 3); // set end point of the vector to br 2x 3y, so the line goes from 0,0 to 2,3
 
         drawnLine = lineFactory.GetLine(startPt, endPt, 0.02f, Color.black); //uses the data that references that start, end, width and colour to initialise the line
         drawnLine.EnableDrawing(true); //activates the line
 
-        Vector2 vec2 = endPt - startPt; //magnitude or the distance of line
+        Vector2 vec2 = endPt - startPt; //magnitude or the length of line
         Debug.Log("Magnitude = " + vec2.magnitude);
     }
 
