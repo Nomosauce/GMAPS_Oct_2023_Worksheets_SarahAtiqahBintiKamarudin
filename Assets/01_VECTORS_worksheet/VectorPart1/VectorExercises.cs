@@ -53,7 +53,14 @@ public class VectorExercises : MonoBehaviour
 
     void Question2b(int n)
     {
+        for (int i = 0; i <= n; i++) //iterates this code n amount of times based on how many lines are needed
+        {
+            startPt = new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f)); // randomises the x and y-axis to have a number from -5 to 5
+            endPt = new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f));
 
+            drawnLine = lineFactory.GetLine(startPt, endPt, 0.02f, Color.black);
+            drawnLine.EnableDrawing(true);
+        }
     }
 
     void Question2d()
