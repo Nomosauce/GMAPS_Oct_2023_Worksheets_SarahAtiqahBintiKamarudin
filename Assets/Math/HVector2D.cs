@@ -53,7 +53,7 @@ public class HVector2D
 
     public float Magnitude()
     {
-        return math.sqrt(x + y);
+        return math.sqrt(math.pow(x,2) + math.pow(y, 2));
     }
 
     public void Normalize()

@@ -117,9 +117,9 @@ public class VectorExercises : MonoBehaviour
 
         DebugExtension.DebugArrow(a.ToUnityVector3(), -b.ToUnityVector3(), Color.green, 60f);
 
-        //Debug.Log("Magnitude of a = " + //code.ToString("F2"));
-        // Your code here
-        // ...
+        Debug.Log("Magnitude of a = " + Vector3.Magnitude(a.ToUnityVector3()).ToString("F2"));
+        Debug.Log("Magnitude of b = " + Vector3.Magnitude(b.ToUnityVector3()).ToString("F2"));
+        Debug.Log("Magnitude of c = " + Vector3.Magnitude(c.ToUnityVector3()).ToString("F2"));
     }
 
     public void Question3b()
@@ -135,6 +135,8 @@ public class VectorExercises : MonoBehaviour
 
     public void Question3c()
     {
+        HVector2D a = new HVector2D(3, 5);
+
 
     }
 
