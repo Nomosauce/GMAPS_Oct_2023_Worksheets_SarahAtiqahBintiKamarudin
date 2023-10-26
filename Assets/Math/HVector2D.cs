@@ -68,10 +68,11 @@ public class HVector2D
         return (x * vec.x + y * vec.y);
     }
 
-    // public HVector2D Projection(/*???*/)
-    // {
-
-    // }
+    public HVector2D Projection(HVector2D b)
+    {
+        HVector2D proj = b * (DotProduct(b) / b.DotProduct(b));
+        return proj;
+    }
 
     public float FindAngle(HVector2D vec)
     {

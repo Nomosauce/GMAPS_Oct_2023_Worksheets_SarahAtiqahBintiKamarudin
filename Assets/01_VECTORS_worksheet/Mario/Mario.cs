@@ -19,20 +19,20 @@ public class Mario : MonoBehaviour
 
     void FixedUpdate()
     {
-        gravityDir = planet.position - transform.position;
-        moveDir = new Vector3(gravityDir.y,-gravityDir.x,0f);
-        moveDir = moveDir.normalized * -1f;
+        gravityDir = planet.position - transform.position; //vector from player to planet
+        moveDir = new Vector3(gravityDir.y,-gravityDir.x,0f); //flipped the xy axis to make perpendicular
+        moveDir = moveDir.normalized * -1f; //normalise to flip pos/neg signs
 
         rb.AddForce(moveDir * force);
 
         gravityNorm = gravityDir.normalized;
-        rb.AddForce(gravityNorm * gravityStrength);
+        rb.AddForce(gravityNorm * gravityStrength); //normalised gravity direction to set gravity strength
 
-        float angle = Vector3.SignedAngle(Vector3.right, moveDir, Vector3.forward);
+        float angle = Vector3.SignedAngle(Vector3.right, moveDir, Vector3.forward); //calculate angle (to rotate sprite?)
 
-        rb.MoveRotation(Quaternion.Euler(0, 0, angle));
+        rb.MoveRotation(Quaternion.Euler(0, 0, angle)); //rotates astronauts rb component
 
-        DebugExtension.DebugArrow(transform.position, gravityNorm * gravityStrength);
+        DebugExtension.DebugArrow(transform.position, gravityNorm * gravityStrength); //drawing the arrows
         DebugExtension.DebugArrow(transform.position, moveDir);
     }
 }
