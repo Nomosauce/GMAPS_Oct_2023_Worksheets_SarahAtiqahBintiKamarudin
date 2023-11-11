@@ -8,7 +8,7 @@ public class HMatrix2D
 
     public HMatrix2D()
     {
-        // your code here
+        Entries = new float[3, 3];
     }
 
     public HMatrix2D(float[,] multiArray)
@@ -27,13 +27,19 @@ public class HMatrix2D
              float m20, float m21, float m22)
     {
         // First row
-        // your code here
+        Entries[0, 0] = m00;
+        Entries[0, 1] = m01;
+        Entries[0, 2] = m02;
 
         // Second row
-        // your code here
+        Entries[1, 0] = m10;
+        Entries[1, 1] = m11;
+        Entries[1, 2] = m12;
 
         // Third row
-        // your code here
+        Entries[2, 0] = m10;
+        Entries[2, 1] = m11;
+        Entries[2, 2] = m12;
     }
 
     /*public static HMatrix2D operator +(HMatrix2D left, HMatrix2D right)
