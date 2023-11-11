@@ -104,7 +104,7 @@ public class HMatrix2D
 
     public void SetIdentity()
     {
-        for (int y = 0; y < 3; y++)
+        /*for (int y = 0; y < 3; y++)
         {
             for (int x = 0; x < 3; x++)
             {
@@ -116,6 +116,14 @@ public class HMatrix2D
                 {
                     Entries[x, y] = 0;
                 }
+            }
+        }*/
+
+        for (int y = 0; y < 3; y++)
+        {
+            for (int x = 0; x < 3; x++)
+            {
+                Entries[x, y] = x == y ? 1 : 0;
             }
         }
     }
