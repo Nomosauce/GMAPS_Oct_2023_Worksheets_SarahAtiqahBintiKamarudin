@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class HMatrix2D
 {
@@ -118,15 +119,37 @@ public class HMatrix2D
     );
     }*/
 
-    /*public static bool operator ==(HMatrix2D left, HMatrix2D right)
+    public static bool operator ==(HMatrix2D left, HMatrix2D right)
     {
-        // your code here
-    }*/
+        for (int y = 0; y < 3; y++)
+        {
+            for (int x = 0; x < 3; x++)
+            {
+                if (left.Entries[x, y] != right.Entries[x, y])
+                {
+                    return false;
+                }
+            }
+        }
 
-    /*public static bool operator !=(HMatrix2D left, HMatrix2D right)
+        return true;
+    }
+
+    public static bool operator !=(HMatrix2D left, HMatrix2D right)
     {
-        // your code here
-    }*/
+        for (int y = 0; y < 3; y++)
+        {
+            for (int x = 0; x < 3; x++)
+            {
+                if (left.Entries[x, y] != right.Entries[x, y])
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
 
     /*public HMatrix2D transpose()
     {
