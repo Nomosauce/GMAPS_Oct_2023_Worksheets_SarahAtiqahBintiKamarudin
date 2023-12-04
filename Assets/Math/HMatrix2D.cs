@@ -42,20 +42,50 @@ public class HMatrix2D
         Entries[2, 2] = m12;
     }
 
-    /*public static HMatrix2D operator +(HMatrix2D left, HMatrix2D right)
+    public static HMatrix2D operator +(HMatrix2D left, HMatrix2D right)
     {
-        return // your code here
-    }*/
+        HMatrix2D result = new HMatrix2D();
 
-    /*public static HMatrix2D operator -(HMatrix2D left, HMatrix2D right)
-    {
-        return // your code here
-    }*/
+        for (int y = 0; y < 3; y++)
+        {
+            for (int x = 0; x < 3; x++)
+            {
+                result.Entries[x, y] = left.Entries[x, y] + right.Entries[x, y];
+            }
+        }
 
-    /*public static HMatrix2D operator *(HMatrix2D left, float scalar)
+        return result; 
+    }
+
+    public static HMatrix2D operator -(HMatrix2D left, HMatrix2D right)
     {
-        return // your code here
-    }*/
+        HMatrix2D result = new HMatrix2D();
+
+        for (int y = 0; y < 3; y++)
+        {
+            for (int x = 0; x < 3; x++)
+            {
+                result.Entries[x, y] = left.Entries[x, y] - right.Entries[x, y];
+            }
+        }
+
+        return result;
+    }
+
+    public static HMatrix2D operator *(HMatrix2D left, float scalar)
+    {
+        HMatrix2D result = new HMatrix2D();
+
+        for (int y = 0; y < 3; y++)
+        {
+            for (int x = 0; x < 3; x++)
+            {
+                result.Entries[x, y] = left.Entries[x, y] * scalar;
+            }
+        }
+
+        return result;
+    }
 
     // Note that the second argument is a HVector2D object
     //
