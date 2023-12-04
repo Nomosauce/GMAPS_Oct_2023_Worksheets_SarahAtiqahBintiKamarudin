@@ -34,7 +34,5 @@ public class TestMatrix : MonoBehaviour
 
         resultMat = mat1 * mat2;
         resultMat.Print();
-
-        // Test matrix-vector multiplication ltr
     }
 }
