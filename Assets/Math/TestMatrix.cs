@@ -11,5 +11,30 @@ public class TestMatrix : MonoBehaviour
     {
         mat.SetIdentity();
         mat.Print();
+
+        Question2();
+    }
+
+    public void Question2()
+    {
+        // Declare matrices and vector
+        HMatrix2D mat1 = new HMatrix2D(
+        1.0f, 2.0f, 3.0f,
+        4.0f, 5.0f, 6.0f,
+        7.0f, 8.0f, 9.0f
+        );
+        HMatrix2D mat2 = new HMatrix2D(
+        2.0f, 4.0f, 6.0f,
+        8.0f, 10.0f, 12.0f,
+        14.0f, 16.0f, 18.0f
+        );
+        HVector2D vec1 = new HVector2D(2.0f, 3.0f);
+
+        HMatrix2D resultMat;
+
+        resultMat = mat1 * mat2;
+        resultMat.Print();
+
+        // Test matrix-vector multiplication ltr
     }
 }

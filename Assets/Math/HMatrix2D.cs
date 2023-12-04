@@ -38,9 +38,9 @@ public class HMatrix2D
         Entries[1, 2] = m12;
 
         // Third row
-        Entries[2, 0] = m10;
-        Entries[2, 1] = m11;
-        Entries[2, 2] = m12;
+        Entries[2, 0] = m20;
+        Entries[2, 1] = m21;
+        Entries[2, 2] = m22;
     }
 
     public static HMatrix2D operator +(HMatrix2D left, HMatrix2D right)
