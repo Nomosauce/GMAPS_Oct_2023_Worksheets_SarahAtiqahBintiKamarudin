@@ -25,7 +25,7 @@ public class MeshManager : MonoBehaviour
     void Awake()
     {
         meshFilter = GetComponent<MeshFilter>();
-        originalMesh = meshFilter.sharedMesh;
+        originalMesh = meshFilter.sharedMesh;  
         clonedMesh = new Mesh();
         clonedMesh.name = "clone";
         clonedMesh.vertices = originalMesh.vertices;
