@@ -1,6 +1,6 @@
 ﻿//// Uncomment this whole file.
 
-using Mono.Cecil.Cil;
+//using Mono.Cecil.Cil;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,22 +23,30 @@ public class TransformMesh : MonoBehaviour
         meshManager = GetComponent<MeshManager>();
         pos = new HVector2D(gameObject.transform.position.x, gameObject.transform.position.y);
 
-        // Your code here
+        //Translate(1,1);
+        Rotate(45);
     }
 
 
     void Translate(float x, float y)
     {
-        // Your code here
+        transformMatrix.SetIdentity();
+        transformMatrix.SetTranslationMat(x, y);
+        Transform();
+
+        pos = transformMatrix * pos;
     }
 
     void Rotate(float angle)
     {
-        transformMatrix.SetIdentity();
+        transformMatrix.SetIdentity(); 
 
-        // Your code here
+        toOriginMatrix.SetTranslationMat(-pos.x, -pos.y);
+        fromOriginMatrix.SetTranslationMat(pos.x, pos.y);
 
-        transformMatrix = fromOriginMatrix * // Your code here;
+        rotateMatrix.SetRotationMat(angle);
+
+        transformMatrix = fromOriginMatrix * rotateMatrix * toOriginMatrix; ;
 
         Transform();
     }
@@ -49,7 +57,10 @@ public class TransformMesh : MonoBehaviour
 
         for (int i = 0; i < vertices.Length; i++)
         {
-            // Your code here
+            HVector2D vert = new HVector2D(vertices[i].x, vertices[i].y);
+            vert = transformMatrix * vert;
+            vertices[i].x = vert.x;
+            vertices[i].y = vert.y;
         }
 
         meshManager.clonedMesh.vertices = vertices;
