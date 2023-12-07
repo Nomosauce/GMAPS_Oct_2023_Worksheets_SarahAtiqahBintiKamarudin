@@ -10,10 +10,10 @@ public class Motion : MonoBehaviour
     {
         float dt = Time.deltaTime;
 
-        float dx = Velocity.x * dt;
+        float dx = Velocity.x * dt; //displacement formulas used for each axis
         float dy = Velocity.y * dt;
         float dz = Velocity.z * dt;
 
-        transform.Translate(new Vector3(dx, dy, dz));
+        transform.Translate(new Vector3(dx, dy, dz)); //tramslate to new displacement
     }
 }

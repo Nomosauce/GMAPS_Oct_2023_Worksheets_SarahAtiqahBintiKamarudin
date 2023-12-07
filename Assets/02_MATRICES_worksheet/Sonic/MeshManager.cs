@@ -26,15 +26,15 @@ public class MeshManager : MonoBehaviour
     {
         meshFilter = GetComponent<MeshFilter>();
         originalMesh = meshFilter.sharedMesh;  
-        clonedMesh = new Mesh();
+        clonedMesh = new Mesh(); //clones the original mesh and becomes cloned mesh to be used for transformationd
         clonedMesh.name = "clone";
-        clonedMesh.vertices = originalMesh.vertices;
+        clonedMesh.vertices = originalMesh.vertices; //copies thr attributes of the og mesh
         clonedMesh.triangles = originalMesh.triangles;
         clonedMesh.normals = originalMesh.normals;
         clonedMesh.uv = originalMesh.uv;
-        meshFilter.mesh = clonedMesh;
+        meshFilter.mesh = clonedMesh; //assign to meshfilter, replace og
 
-        vertices = clonedMesh.vertices;
+        vertices = clonedMesh.vertices; //storing for transformations later
         triangles = clonedMesh.triangles;
     }
 }

@@ -10,14 +10,14 @@ public class TestMatrix : MonoBehaviour
     void Start()
     {
         mat.SetIdentity();
-        mat.Print();
+        mat.Print(); //print out the identity matrix to test
 
         Question2();
     }
 
     public void Question2()
     {
-        // Declare matrices and vector
+        //testing to see if the mulitplication for matrix by matrix works
         HMatrix2D mat1 = new HMatrix2D(
         1.0f, 2.0f, 3.0f,
         4.0f, 5.0f, 6.0f,

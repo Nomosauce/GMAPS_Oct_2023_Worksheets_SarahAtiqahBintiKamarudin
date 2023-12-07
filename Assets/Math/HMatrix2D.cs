@@ -5,18 +5,18 @@ using UnityEngine.UIElements;
 
 public class HMatrix2D
 {
-    public float[,] Entries { get; set; } = new float[3, 3];
+    public float[,] Entries { get; set; } = new float[3, 3]; //3x3 array
 
-    public HMatrix2D()
+    public HMatrix2D() //default constructor
     {
         Entries = new float[3, 3];
     }
 
-    public HMatrix2D(float[,] multiArray)
+    public HMatrix2D(float[,] multiArray) //2d array taken into for loop to be set to entries
     {
-        for (int y = 0; y < 3; y++)
+        for (int y = 0; y < 3; y++) // 3 columns
         {
-            for (int x = 0; x < 3; x++)
+            for (int x = 0; x < 3; x++) // 3 rows
             {
                 Entries[x, y] = multiArray[x, y];
             }
@@ -43,7 +43,7 @@ public class HMatrix2D
         Entries[2, 2] = m22;
     }
 
-    public static HMatrix2D operator +(HMatrix2D left, HMatrix2D right)
+    public static HMatrix2D operator +(HMatrix2D left, HMatrix2D right) //operator overloading for addition
     {
         HMatrix2D result = new HMatrix2D();
 
@@ -51,14 +51,14 @@ public class HMatrix2D
         {
             for (int x = 0; x < 3; x++)
             {
-                result.Entries[x, y] = left.Entries[x, y] + right.Entries[x, y];
+                result.Entries[x, y] = left.Entries[x, y] + right.Entries[x, y]; //the element from left gets added with an element from right which is in the exact same row and column
             }
         }
 
-        return result; 
+        return result;  
     }
 
-    public static HMatrix2D operator -(HMatrix2D left, HMatrix2D right)
+    public static HMatrix2D operator -(HMatrix2D left, HMatrix2D right) //operator overloading for subtraction
     {
         HMatrix2D result = new HMatrix2D();
 
@@ -66,14 +66,14 @@ public class HMatrix2D
         {
             for (int x = 0; x < 3; x++)
             {
-                result.Entries[x, y] = left.Entries[x, y] - right.Entries[x, y];
+                result.Entries[x, y] = left.Entries[x, y] - right.Entries[x, y]; //the element from left gets subtracted with an element from right which is in the exact same row and column
             }
         }
 
         return result;
     }
 
-    public static HMatrix2D operator *(HMatrix2D left, float scalar)
+    public static HMatrix2D operator *(HMatrix2D left, float scalar) //operator overloading for multiplication with scalar
     {
         HMatrix2D result = new HMatrix2D();
 
@@ -81,7 +81,7 @@ public class HMatrix2D
         {
             for (int x = 0; x < 3; x++)
             {
-                result.Entries[x, y] = left.Entries[x, y] * scalar;
+                result.Entries[x, y] = left.Entries[x, y] * scalar; //every element is multiplied by the same scalar
             }
         }
 
@@ -89,7 +89,7 @@ public class HMatrix2D
     }
 
     // Note that the second argument is a HVector2D object
-    public static HVector2D operator *(HMatrix2D left, HVector2D right)
+    public static HVector2D operator *(HMatrix2D left, HVector2D right) //operator overloading for vector-matrix multiplication
     {
         return new HVector2D
         (
@@ -100,7 +100,7 @@ public class HMatrix2D
     }
 
     // Note that the second argument is a HMatrix2D object
-    public static HMatrix2D operator *(HMatrix2D left, HMatrix2D right)
+    public static HMatrix2D operator *(HMatrix2D left, HMatrix2D right) //operator overload for matrix by matrix multiplication
     {
         return new HMatrix2D
         (
@@ -169,13 +169,13 @@ public class HMatrix2D
     );
     }
 
-    public static bool operator ==(HMatrix2D left, HMatrix2D right)
+    public static bool operator ==(HMatrix2D left, HMatrix2D right) //operator overloading for equals to
     {
         for (int y = 0; y < 3; y++)
         {
             for (int x = 0; x < 3; x++)
             {
-                if (left.Entries[x, y] != right.Entries[x, y])
+                if (left.Entries[x, y] != right.Entries[x, y]) //goes through every element and returns false if any one of the left/right element doesnt match the other
                 {
                     return false;
                 }
@@ -185,7 +185,7 @@ public class HMatrix2D
         return true;
     }
 
-    public static bool operator !=(HMatrix2D left, HMatrix2D right)
+    public static bool operator !=(HMatrix2D left, HMatrix2D right) //same as above but opposite
     {
         for (int y = 0; y < 3; y++)
         {
@@ -211,7 +211,7 @@ public class HMatrix2D
         return // your code here
     }*/
 
-    public void SetIdentity()
+    public void SetIdentity() //set the matrix to an identity matrix for future transforming
     {
         /*for (int y = 0; y < 3; y++)
         {
@@ -232,23 +232,23 @@ public class HMatrix2D
         {
             for (int x = 0; x < 3; x++)
             {
-                Entries[x, y] = x == y ? 1 : 0;
+                Entries[x, y] = x == y ? 1 : 0; //ternary operator to check if the row number is equal to the column number, turning the value to 1, if not, value is 0
             }
         }
     }
 
-    public void SetTranslationMat(float transX, float transY)
+    public void SetTranslationMat(float transX, float transY) //translation matrix
     {
         SetIdentity();
         Entries[0, 2] = transX;
         Entries[1, 2] = transY;
     }
 
-    public void SetRotationMat(float rotDeg)
+    public void SetRotationMat(float rotDeg) //rotation matrix
     {
         SetIdentity();
-        float rad = rotDeg * Mathf.Deg2Rad;
-        Entries[0,0] = Mathf.Cos(rad);
+        float rad = rotDeg * Mathf.Deg2Rad; //converts degree to radian
+        Entries[0,0] = Mathf.Cos(rad); //the formula in slides
         Entries[0, 1] = -Mathf.Sin(rad);
         Entries[1, 0] = Mathf.Sin(rad);
         Entries[1, 1] = Mathf.Cos(rad);
