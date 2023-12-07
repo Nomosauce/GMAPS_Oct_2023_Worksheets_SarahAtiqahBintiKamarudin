@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Table2D : MonoBehaviour
 {
-    public List<Ball2D> balls;
+    //public List<Ball2D> balls;
 
     private void Start()
     {
 
     }
 
-    bool CheckBallCollision(Ball2D toCheck)
+/*    bool CheckBallCollision(Ball2D toCheck)
     {
         //for (int i = 0; i < balls.Count; i++)
         {
@@ -24,13 +24,13 @@ public class Table2D : MonoBehaviour
         }
 
         return false;
-    }
+    }*/
 
-    private void FixedUpdate()
+    /*private void FixedUpdate()
     {
         if (CheckBallCollision(balls[0]))
         {
             Debug.Log("COLLISION!");
         }
-    }
+    }*/
 }
